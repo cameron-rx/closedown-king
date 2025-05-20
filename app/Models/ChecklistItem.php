@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class TemplateItem extends Model
+class ChecklistItem extends Model
 {
-    protected $fillable = ['name', 'position', 'template_item_group_id'];
     //
+    protected $fillable = ['name', 'position', 'checklist_item_group_id', 'is_complete'];
+
     public function group(): BelongsTo
     {
-        return $this->belongsTo(TemplateItemGroup::class);
+        return $this->belongsTo(ChecklistItemGroup::class);
     }
 }
