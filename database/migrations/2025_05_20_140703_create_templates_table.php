@@ -16,6 +16,22 @@ return new class extends Migration
             $table->string("name");
             $table->timestamps();
         });
+
+        Schema::create('template_item_groups', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('position');
+            $table->foreignId('template_id');
+            $table->timestamps();
+        });
+
+        Schema::create('template_items', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->foreignId('template_item_group_id');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -24,5 +40,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('templates');
+        Schema::dropIfExists('template_item_groups');
+        Schema::dropIfExists('template_items');
     }
 };

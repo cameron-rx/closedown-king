@@ -17,6 +17,28 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->timestamps();
         });
+
+        Schema::create('checklist_item_groups', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('position');
+            $table->foreignId('checklist_id');
+            $table->timestamps();
+        });
+
+        Schema::create('checklist_items', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->boolean('is_complete');
+            $table->integer('position');
+            $table->foreignId('checklist_item_group_id');
+            $table->timestamps();
+        });
+
+    }
+
+    /**
+     * Reverse the migrations.
     }
 
     /**
@@ -25,5 +47,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('checklists');
+        Schema::dropIfExists('checklist_item_groups');
+        Schema::dropIfExists('checklist_items');
     }
 };
