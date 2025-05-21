@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('checklist_item_groups', function (Blueprint $table) {
+        Schema::create('checklist_sections', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('position');
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('is_complete');
             $table->integer('position');
-            $table->foreignId('checklist_item_group_id');
+            $table->foreignId('checklist_section_id');
             $table->timestamps();
         });
 
@@ -47,7 +47,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('checklists');
-        Schema::dropIfExists('checklist_item_groups');
+        Schema::dropIfExists('checklist_sections');
         Schema::dropIfExists('checklist_items');
     }
 };

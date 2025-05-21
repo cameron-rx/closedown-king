@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class ChecklistItemGroup extends Model
+class ChecklistSection extends Model
 {
     //
     protected $fillable = ['name', 'position', 'template_id'];

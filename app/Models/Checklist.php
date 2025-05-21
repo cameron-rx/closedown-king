@@ -12,7 +12,7 @@ class Checklist extends Model
 
     public function groups(): HasMany
     {
-        return $this->HasMany(ChecklistItemGroup::class);
+        return $this->HasMany(ChecklistSection::class);
     }
 
     public function group(): BelongsTo

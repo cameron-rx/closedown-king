@@ -12,6 +12,6 @@ class ChecklistItem extends Model
 
     public function group(): BelongsTo
     {
-        return $this->belongsTo(ChecklistItemGroup::class);
+        return $this->belongsTo(ChecklistSection::class);
     }
 }
