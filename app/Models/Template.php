@@ -10,8 +10,9 @@ class Template extends Model
     //
     protected $fillable = ['name'];
 
-    public function groups(): HasMany
+    public function sections(): HasMany
     {
         return $this->HasMany(TemplateSection::class);
     }
+
 }

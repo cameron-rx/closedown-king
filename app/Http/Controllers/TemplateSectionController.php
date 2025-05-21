@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Template;
 use Illuminate\Http\Request;
+use App\Models\TemplateSection;
+use App\Models\Template;
 
-class TemplateController extends Controller
+class TemplateSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,6 @@ class TemplateController extends Controller
     public function index()
     {
         //
-        $templates = Template::all();
-        return view('templates', ['templates' => $templates]);
     }
 
     /**
@@ -23,18 +22,25 @@ class TemplateController extends Controller
     public function create()
     {
         //
-        return view('template-create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, string $templateId)
     {
-        //
+        // Create a section with the template id
+        // Find out how many sections the current template id has 
         $name = $request->input('name');
-        $template = Template::create(['name' => $name]);
-        return redirect()->route('templates.list');
+        $count = TemplateSection::where('template_id', (int)$templateId)->count();
+
+        $templateSection = TemplateSection::create([
+            'name' => $name,
+            'template_id' => (int)$templateId,
+            'position' => $count + 1
+        ]);
+
+        return redirect()->route('templates.edit', $templateId);
     }
 
     /**
@@ -51,8 +57,6 @@ class TemplateController extends Controller
     public function edit(string $id)
     {
         //
-        $template = Template::find($id);
-        return view("template-edit", ['template' => $template]);
     }
 
     /**
@@ -66,10 +70,10 @@ class TemplateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $templateId, string $sectionId)
     {
         //
-        Template::destroy((int)$id);
-        return redirect()->route('templates.list');
+        TemplateSection::destroy((int)$sectionId);
+        return redirect()->route('templates.edit', $templateId);
     }
 }

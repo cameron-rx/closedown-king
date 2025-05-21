@@ -1,13 +1,17 @@
 <?php
 
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\TemplateSectionController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/templates', [TemplateController::class, "index"])->name('templates.list');
-Route::get('/template', [TemplateController::class, "create"])->name('templates.create');
+Route::get('/template', [TemplateController::class, "index"])->name('templates.list');
+Route::get('/template/create', [TemplateController::class, "create"])->name('templates.create');
+Route::get('/template/{id}/edit', [TemplateController::class, "edit"])->name('templates.edit');
 Route::post('/template', [TemplateController::class, "store"])->name('templates.store');
 Route::delete('/template/{id}', [TemplateController::class, "destroy"])->name('templates.destroy');
 
+Route::post('/template/{id}/section', [TemplateSectionController::class, "store"])->name('templates.section.store');
+Route::delete('/template/{templateId}/section/{sectionId}', [TemplateSectionController::class, "destroy"])->name('templates.section.destroy');

@@ -1,16 +1,11 @@
 <div class="flex flex-row justify-between">
     <h1 class="text-xl hover:cursor-pointer ">{{$template->name}}</h1>
     <div class="flex flex-row">
-        <form method="post">
-            @csrf
-            @method('GET')
-            <button class="btn">Edit</button>
-        </form>
-
+        <a class="btn btn-md" href="{{ route('templates.edit', $template->id) }}">Edit</a>
         <form method="post" action="{{ route('templates.destroy', $template->id) }}">
             @csrf
             @method('DELETE')
-            <button class="btn">Delete</button>
+            <button class="btn btn-md">Delete</button>
         </form>
 
     </div>
