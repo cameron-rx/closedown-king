@@ -12,6 +12,6 @@ class Template extends Model
 
     public function groups(): HasMany
     {
-        return $this->HasMany(TemplateItemGroup::class);
+        return $this->HasMany(TemplateSection::class);
     }
 }

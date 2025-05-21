@@ -17,7 +17,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('template_item_groups', function (Blueprint $table) {
+        Schema::create('template_sections', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('position');
@@ -28,7 +28,7 @@ return new class extends Migration
         Schema::create('template_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('template_item_group_id');
+            $table->foreignId('template_section_id');
             $table->timestamps();
         });
 
@@ -40,7 +40,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('templates');
-        Schema::dropIfExists('template_item_groups');
+        Schema::dropIfExists('template_section');
         Schema::dropIfExists('template_items');
     }
 };

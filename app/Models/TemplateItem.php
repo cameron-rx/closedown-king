@@ -11,6 +11,6 @@ class TemplateItem extends Model
     //
     public function group(): BelongsTo
     {
-        return $this->belongsTo(TemplateItemGroup::class);
+        return $this->belongsTo(TemplateSection::class);
     }
 }
