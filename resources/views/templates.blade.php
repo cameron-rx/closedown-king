@@ -10,6 +10,6 @@
         @endforeach
     </div>
 
-    <a href="{{ route('templates.create') }}" class="btn m-auto btn-md">New</a>
+    <a href="{{ route('templates.create') }}" class="btn m-auto btn-md">New Template</a>
 </div>
 @endsection

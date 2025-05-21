@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TemplateItem extends Model
 {
-    protected $fillable = ['name', 'position', 'template_item_group_id'];
+    protected $fillable = ['name', 'position', 'template_section_id'];
     //
-    public function group(): BelongsTo
+    public function section(): BelongsTo
     {
         return $this->belongsTo(TemplateSection::class);
     }

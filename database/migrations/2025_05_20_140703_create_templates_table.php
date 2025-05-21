@@ -28,6 +28,7 @@ return new class extends Migration
         Schema::create('template_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('position');
             $table->foreignId('template_section_id');
             $table->timestamps();
         });
@@ -40,7 +41,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('templates');
-        Schema::dropIfExists('template_section');
+        Schema::dropIfExists('template_sections');
         Schema::dropIfExists('template_items');
     }
 };

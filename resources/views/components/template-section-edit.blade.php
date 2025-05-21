@@ -1,10 +1,32 @@
-<div class="flex flex-row justify-between">
-    <h1 class="text-2xl text-center">{{ $templateSection->name }}</h1>
+<div>
+    <div class="flex flex-row justify-between">
+    
+        <h1 class="text-2xl text-center">{{ $templateSection->name }}</h1>
 
-    <form method="post" action="{{ route('templates.section.destroy', [$templateSection->template_id, $templateSection->id]) }}">
+        <form method="post" action="{{ route('templates.section.destroy', [$templateSection->template_id, $templateSection->id]) }}">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-sm">X</button>
+        </form>
+    
+    </div>
+
+    <div class = "flex flex-col">
+        <ul>
+        @foreach ($templateSection->items as $item)
+            <li>{{ $item->name }}</li> 
+        @endforeach
+        <ul>
+    </div>
+
+    <form class="" method="post" action="{{ route('section.item.store', $templateSection->id) }}">
         @csrf
-        @method('DELETE')
-        <button class="btn btn-sm">X</button>
+        <fieldset class="fieldset">
+         <legend class="fieldset-legend"></legend>
+         <input type="text" name="name" class="input" placeholder="Enter item name" />
+        </fieldset>
+
+        <button class="btn mt-2" type="submit">Add Item</button>
     </form>
 
 </div>

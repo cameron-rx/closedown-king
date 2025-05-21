@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\TemplateItemController;
 use App\Http\Controllers\TemplateSectionController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
@@ -15,3 +16,6 @@ Route::delete('/template/{id}', [TemplateController::class, "destroy"])->name('t
 
 Route::post('/template/{id}/section', [TemplateSectionController::class, "store"])->name('templates.section.store');
 Route::delete('/template/{templateId}/section/{sectionId}', [TemplateSectionController::class, "destroy"])->name('templates.section.destroy');
+
+
+Route::post('/section/{sectionId}/item', [TemplateItemController::class, "store"])->name('section.item.store');
