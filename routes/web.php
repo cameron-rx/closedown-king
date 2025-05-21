@@ -1,24 +1,13 @@
 <?php
 
+use App\Http\Controllers\TemplateController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/templates', [TemplateController::class, "index"])->name('templates.list');
+Route::get('/template', [TemplateController::class, "create"])->name('templates.create');
+Route::post('/template', [TemplateController::class, "store"])->name('templates.store');
+Route::delete('/template/{id}', [TemplateController::class, "destroy"])->name('templates.destroy');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::middleware(['auth'])->group(function () {
-    Route::redirect('settings', 'settings/profile');
-
-    Route::get('settings/profile', Profile::class)->name('settings.profile');
-    Route::get('settings/password', Password::class)->name('settings.password');
-    Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
-});
-
-require __DIR__.'/auth.php';
