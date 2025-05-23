@@ -71,8 +71,12 @@ class TemplateItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $sectionId, string $itemId)
     {
         //
+        TemplateItem::destroy($itemId);
+
+        $templateSection = TemplateSection::find($sectionId);
+        return redirect()->route('templates.edit', $templateSection->template_id);
     }
 }

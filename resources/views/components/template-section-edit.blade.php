@@ -11,13 +11,21 @@
     
     </div>
 
-    <div class = "flex flex-col">
+    <div class = "flex flex-col ml-5 mr-10 mt-3">
         <ul>
         @foreach ($templateSection->items as $item)
-            <li>{{ $item->name }}</li> 
+            <li class="flex flex-row justify-between items-center mb-1">
+                <p>
+                {{ $item->name }}
+                <p>
+                <form method="post" action="{{ route('section.item.destroy', [$templateSection->id, $item->id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm">X</button>
+                </form>
+            </li> 
         @endforeach
         <ul>
-    </div>
 
     <form class="" method="post" action="{{ route('section.item.store', $templateSection->id) }}">
         @csrf
@@ -29,4 +37,5 @@
         <button class="btn mt-2" type="submit">Add Item</button>
     </form>
 
+    </div>
 </div>

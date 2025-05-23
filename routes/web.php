@@ -19,3 +19,4 @@ Route::delete('/template/{templateId}/section/{sectionId}', [TemplateSectionCont
 
 
 Route::post('/section/{sectionId}/item', [TemplateItemController::class, "store"])->name('section.item.store');
+Route::delete('/section/{sectionId}/item/{itemID}', [TemplateItemController::class, "destroy"])->name('section.item.destroy');
