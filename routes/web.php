@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChecklistController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\TemplateItemController;
 use App\Http\Controllers\TemplateSectionController;
@@ -7,6 +8,10 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
 Route::get('/template', [TemplateController::class, "index"])->name('templates.list');
 Route::get('/template/create', [TemplateController::class, "create"])->name('templates.create');
@@ -20,3 +25,6 @@ Route::delete('/template/{templateId}/section/{sectionId}', [TemplateSectionCont
 
 Route::post('/section/{sectionId}/item', [TemplateItemController::class, "store"])->name('section.item.store');
 Route::delete('/section/{sectionId}/item/{itemID}', [TemplateItemController::class, "destroy"])->name('section.item.destroy');
+
+Route::get('/checklist', [ChecklistController::class, "create"])->name('checklists.create');
+Route::post('/checklist', [ChecklistController::class, "create"])->name('checklists.store');
