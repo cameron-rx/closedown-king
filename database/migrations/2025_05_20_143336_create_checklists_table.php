@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('checklists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('is_complete');
             $table->foreignId('user_id');
             $table->timestamps();
         });
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('position');
-            $table->foreignId('checklist_id');
+            $table->foreignId('checklist_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 
@@ -31,7 +32,7 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('is_complete');
             $table->integer('position');
-            $table->foreignId('checklist_section_id');
+            $table->foreignId('checklist_section_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 

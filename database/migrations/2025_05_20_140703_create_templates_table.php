@@ -21,7 +21,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('position');
-            $table->foreignId('template_id');
+            $table->foreignId('template_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('position');
-            $table->foreignId('template_section_id');
+            $table->foreignId('template_section_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 

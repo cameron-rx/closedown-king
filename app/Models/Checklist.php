@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Checklist extends Model
 {
-    protected $fillable = ['name', 'user_id'];
+    protected $fillable = ['name', 'user_id', 'is_complete'];
 
     public function groups(): HasMany
     {

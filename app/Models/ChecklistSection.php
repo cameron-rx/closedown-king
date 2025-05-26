@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class ChecklistSection extends Model
 {
     //
-    protected $fillable = ['name', 'position', 'template_id'];
+    protected $fillable = ['name', 'position', 'checklist_id'];
 
     public function checklist(): BelongsTo
     {

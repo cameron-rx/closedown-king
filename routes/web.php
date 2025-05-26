@@ -27,4 +27,4 @@ Route::post('/section/{sectionId}/item', [TemplateItemController::class, "store"
 Route::delete('/section/{sectionId}/item/{itemID}', [TemplateItemController::class, "destroy"])->name('section.item.destroy');
 
 Route::get('/checklist', [ChecklistController::class, "create"])->name('checklists.create');
-Route::post('/checklist', [ChecklistController::class, "create"])->name('checklists.store');
+Route::post('/checklist', [ChecklistController::class, "store"])->name('checklists.store');
