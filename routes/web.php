@@ -7,11 +7,14 @@ use App\Http\Controllers\TemplateSectionController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
+use App\Models\Checklist;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+Route::get('/logs', [ChecklistController::class, "index"])->name('logs');
 
 Route::get('/template', [TemplateController::class, "index"])->name('templates.list');
 Route::get('/template/create', [TemplateController::class, "create"])->name('templates.create');
