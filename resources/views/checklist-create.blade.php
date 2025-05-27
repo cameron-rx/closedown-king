@@ -9,7 +9,7 @@
         <form class="w-full" method="post" action="/checklist">
             @csrf
             <input type="hidden" name="template_id" value="{{ $template->id }}">
-            <button class="w-full flex flex-row justify-center bg-custom-blue text-white shadow-custom-grey shadow-md rounded-2xl p-5 m-5 text-5xl hover:cursor-pointer" type="submit">{{ $template->name }}</button>
+            <button class="w-full h-[8svh] flex flex-row items-center justify-center bg-custom-blue text-white font-semibold shadow-custom-grey shadow-md rounded-3xl p-5 m-5 text-5xl hover:cursor-pointer" type="submit">{{ $template->name }}</button>
         </form>
         @endforeach
     </div>

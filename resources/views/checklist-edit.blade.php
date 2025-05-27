@@ -8,6 +8,7 @@
 
         <form class="w-full min-h-[80vh] flex flex-col items-center justify-between" method="post" action="{{ route('checklists.update', $checklist->id) }}">
             @csrf
+            @method('PATCH')
 
             <div class="w-2/3">
                 @foreach ($checklist->sections()->get() as $section)
@@ -34,11 +35,13 @@
     </div>
 
 
-    <div class="w-full flex flex-col justify-center items-center">
-        <button
-            class="flex justify-center items-center h-[8svh] text-center align-middle w-2/3 m-[1svh] text-5xl font-semibold bg-custom-red text-white rounded-3xl"
-            type="submit">Cancel</button>
-    </div>
+        <form class="w-full flex flex-col justify-center items-center" method="post" action="{{ route('checklists.destroy', $checklist->id) }}">
+            @csrf
+            @method('DELETE')
+            <button
+                class="flex justify-center items-center h-[8svh] text-center align-middle w-2/3 m-[1svh] text-5xl font-semibold bg-custom-red text-white rounded-3xl"
+                type="submit">Cancel</button>
+        </form>
 </div>
 
 @endsection

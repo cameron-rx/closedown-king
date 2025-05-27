@@ -112,8 +112,9 @@ class ChecklistController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $checklistId)
     {
-        //
+        Checklist::destroy($checklistId);
+        return redirect()->route('home');
     }
 }

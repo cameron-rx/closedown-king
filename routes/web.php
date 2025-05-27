@@ -30,4 +30,5 @@ Route::get('/checklist', [ChecklistController::class, "create"])->name('checklis
 Route::get('/checklist/{checklistId}', [ChecklistController::class, "show"])->name('checklists.show');
 Route::get('/checklist/edit/{checklistId}', [ChecklistController::class, "edit"])->name('checklists.edit');
 Route::post('/checklist', [ChecklistController::class, "store"])->name('checklists.store');
-Route::post('/checklist/{checklistId}', [ChecklistController::class, "update"])->name('checklists.update');
+Route::patch('/checklist/{checklistId}', [ChecklistController::class, "update"])->name('checklists.update');
+Route::delete('/checklist/{checklistId}', [ChecklistController::class, "destroy"])->name('checklists.destroy');
