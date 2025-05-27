@@ -64,15 +64,16 @@ class ChecklistController extends Controller
             }
         }
 
-        return redirect()->route('checklists.create');
+        return redirect()->route('checklists.edit', $checklist->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $checklistId)
     {
-        //
+        $checklist = Checklist::find($checklistId);
+        return view('checklist-show', ["checklist" => $checklist]);
     }
 
     /**
@@ -81,14 +82,31 @@ class ChecklistController extends Controller
     public function edit(string $id)
     {
         //
+        $checklist = Checklist::find($id);
+        return view('checklist-edit', ["checklist" => $checklist]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $checklistId)
     {
         //
+        $checklist = Checklist::find($checklistId);
+        $items = $checklist->items()->get();
+
+        foreach ($items as $item) 
+        {
+            if ($request->has($item->id))
+            {
+                $item->is_complete = true;
+                $item->save();
+            }
+        }
+
+        $checklist->is_complete = true;
+        $checklist->save();
+        return redirect()->route('checklists.show', $checklist->id);
     }
 
     /**

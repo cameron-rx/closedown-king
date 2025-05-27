@@ -9,6 +9,9 @@ class ChecklistItem extends Model
 {
     //
     protected $fillable = ['name', 'position', 'checklist_section_id', 'is_complete'];
+    protected $casts = [
+        'is_complete' => 'boolean', 
+    ];
 
     public function section(): BelongsTo
     {
