@@ -3,10 +3,10 @@
 @section('content')
 
 <div class="flex flex-col justify-between items-center w-full h-full">
-    <div class="flex flex-col items-center justify-center w-full ">
+    <div class="flex h-full flex-col items-center justify-center w-full ">
         <h1 class="font-semibold text-7xl">{{ $checklist->name}}</h1>
 
-        <form class="w-full min-h-[80vh] flex flex-col items-center justify-between" method="post" action="{{ route('checklists.update', $checklist->id) }}">
+        <form class="w-full min-h-[82vh] flex flex-col items-center justify-between" method="post" action="{{ route('checklists.update', $checklist->id) }}">
             @csrf
             @method('PATCH')
 
