@@ -41,7 +41,7 @@ class ChecklistController extends Controller
 
         $checklist = Checklist::create([
             'name' => $template->name,
-            'user_id' => 1,
+            'user_id' => $request->user()->id,
             'is_complete' => false
         ]);
 

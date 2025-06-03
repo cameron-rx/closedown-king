@@ -16,8 +16,8 @@ class UserWhitelisted
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = Auth::user();
-        if (!$user->verified) {
+        $user = $request->user();
+        if (!$user->is_whitelisted) {
             return redirect()->route('verification');
         }
 

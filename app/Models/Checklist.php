@@ -16,7 +16,7 @@ class Checklist extends Model
 
     public function sections(): HasMany
     {
-        return $this->HasMany(ChecklistSection::class);
+        return $this->hasMany(ChecklistSection::class);
     }
 
     // Can be used to directly access items for a checklist
@@ -30,6 +30,11 @@ class Checklist extends Model
             'id',             
             'id'              
         );
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 
 }
