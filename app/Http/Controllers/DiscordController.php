@@ -35,4 +35,5 @@ class DiscordController extends Controller
     {
         return Socialite::driver('discord')->redirect();
     }
+
 }

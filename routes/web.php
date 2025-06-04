@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChecklistController;
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\TemplateController;
@@ -39,15 +40,10 @@ Route::middleware(['auth', UserWhitelisted::class])->group(function () {
 });
 
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::get('/verification', function() {
-    return view('verification');
-})->name('verification');
 
 // Auth Routes
-// TODO: Add discord controller functions
 Route::get('/auth/redirect', [DiscordController::class, "redirect"]);
 Route::get('/auth/callback', [DiscordController::class, "callback"]);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/verificationt', [AuthController::class, 'verification'])->name('verification');
+Route::get('/logout',  [AuthController::class, 'logout'])->name('logout');

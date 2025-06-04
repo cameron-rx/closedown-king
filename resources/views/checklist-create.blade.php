@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex flex-col justify-evenly items-center w-full h-full">
+<div class="flex flex-col justify-evenly items-center grow">
     <h1 class="text-8xl font-semibold">Choose a Template</h1>
     <div class="h-1/4 w-4/5 flex flex-col items-center">
         @foreach ($templates as $template)
