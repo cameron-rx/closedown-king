@@ -14,9 +14,12 @@
             <button class="text-6xl" @click="open = !open">▼</button>
         </div>
 
-        <div class="absolute z-10 bg-custom-red w-full" x-cloak x-show="open" @click.outside="open = false">
+        <div class="absolute z-10 w-full" x-cloak x-show="open" @click.outside="open = false">
             <ul class="text-3xl p-4 flex flex-col grow">
-                <a href="/logout">Logout</a>
+                @if (auth()->user()->is_admin)
+                <a href="/admin" class="bg-custom-green p-4">Admin</a>
+                @endif
+                <a href="/logout" class="bg-custom-red p-4">Logout</a>
             </ul>
         </div>
         
