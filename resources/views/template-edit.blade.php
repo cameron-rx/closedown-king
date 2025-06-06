@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="flex min-h-full min-w-1/3 max-w-5/6 flex-col m-auto items-center justify-between">
+<div class="flex grow flex-col m-auto items-center justify-between">
     <h1 class="text-3xl text-center">{{$template->name}}</h1>
 
-    <div class="w-1/2">
+    <div class="">
     @foreach ($template->sections as $section)
         <x-template-section-edit :templateSection=$section />
     @endforeach

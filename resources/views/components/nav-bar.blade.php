@@ -1,9 +1,10 @@
 @if (auth()->check())
-<div class="h-40 bg-custom-blue w-full flex flex-row justify-between items-center">
+<div class="sticky top-0 z-10 h-40 bg-background w-full flex flex-row justify-between items-center">
     <!-- User info -->
-    <img class="w-32 h-auto pl-4" src="{{ asset('images/closedown-king.png') }}" width="1024" height="1024"
+     <a href="/" class="pl-4">
+        <img class="w-32 h-auto" src="{{ asset('images/closedown-king.png') }}" width="1024" height="1024"
         alt="Closedown King Logo">
-
+     </a>
         
     <div class="relative h-full pr-4" x-data="{ open: false }">
 
@@ -13,7 +14,7 @@
             <button class="text-6xl" @click="open = !open">▼</button>
         </div>
 
-        <div class="absolute z-10 bg-custom-red w-full" x-show="open" @click.outside="open = false">
+        <div class="absolute z-10 bg-custom-red w-full" x-cloak x-show="open" @click.outside="open = false">
             <ul class="text-3xl p-4 flex flex-col grow">
                 <a href="/logout">Logout</a>
             </ul>
