@@ -17,7 +17,7 @@
                 <tr>
                     <td>{{ $checklist->name }}</td>
                     <td>{{ $checklist->user->name }}</td>
-                    <td>{{ $checklist->updated_at }}</td>
+                    <td>{{ $checklist->updated_at->diffForHumans() }}</td>
                     <td><a href="{{ route('checklists.show', $checklist->id) }}" class="bg-custom-blue rounded-3xl ">Show</a></td>
                 </tr>
             @endforeach

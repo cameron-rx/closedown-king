@@ -2,14 +2,14 @@
 
 @section('content')
 
-<div class="flex flex-col grow justify-between gap-4 p-8">
+<div class="flex flex-col grow justify-between gap-8 p-8">
 
         <h1 class="text-center font-semibold text-7xl pt-8">{{ $checklist->name}}</h1>
-        <h1 class="text-center text-6xl">Completed at:  {{ $checklist->updated_at }}</h1>
         <div class="flex flex-row text-center justify-center items-center gap-4">
             <h1 class="text-6xl">By: <strong>{{$checklist->user->name}}</strong></h1>
             <img class="rounded-full w-20 h-auto" src="{{ $checklist->user->avatar }}">
         </div>
+        <h1 class="text-center text-6xl">{{ $checklist->updated_at->format('l jS F Y H:i') }}</h1>
 
         <div class="flex flex-col grow gap-8 pl-8 pr-8">
                 @foreach ($checklist->sections()->get() as $section)
