@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex flex-col gap-8 p-8 justify-around grow">
+<div class="flex flex-col gap-16 p-8 justify-around grow">
     <h1 class="text-8xl text-center font-semibold">Templates</h1>
     <!-- I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison -->
-    <div class="flex flex-col grow justify-start">
+    <div class="flex flex-col grow gap-8 justify-start">
         @foreach ($templates as $template)
-        <div class="flex flex-row justify-between bg-custom-blue text-white font-semibold shadow-custom-grey shadow-md rounded-3xl p-5 m-5 text-5xl hover:cursor-pointer">
-            <a class="text-5xl" href="{{ route('templates.edit', $template->id) }}">{{$template->name}}</a>
+        <div class="flex flex-row justify-around font-semibold">
+            <h1 class="text-5xl" ">{{$template->name}}</h1>
             <div class="flex flex-row text-4xl gap-8 align-middle">
+                <a href="{{ route('templates.edit', $template->id) }}" class="bg-custom-blue p-4 rounded-3xl hover:cursor-pointer">Edit</a>
                 <form method="post" action="{{ route('templates.destroy', $template->id) }}">
                     @csrf
                     @method('DELETE')

@@ -5,7 +5,7 @@
     <h1 class="text-8xl font-semibold">Users</h1>
 
     <div class="grow flex flex-col justify-between p-8">
-        <table class="table-auto text-center border-separate border-spacing-x-8 border-spacing-y-16 ">
+        <table class="table-auto text-center border-separate border-spacing-x-16 border-spacing-y-16 ">
             <thead class="text-4xl">
                 <tr>
                     <th>Name</th>

@@ -9,7 +9,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@plugin "daisyui";
+/*@plugin "daisyui";*/
 @plugin "@tailwindcss/forms";
 
 @theme {

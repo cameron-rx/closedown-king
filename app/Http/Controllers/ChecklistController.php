@@ -17,7 +17,7 @@ class ChecklistController extends Controller
     public function index()
     {
         //
-        $checklists = Checklist::where('is_complete', true)->orderBy('updated_at')->get();
+        $checklists = Checklist::where('is_complete', true)->orderByDesc('updated_at')->get();
         return view('logs', ["checklists" => $checklists]);
     }
 
