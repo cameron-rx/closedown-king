@@ -74,17 +74,22 @@ class ChecklistController extends Controller
      */
     public function show(string $checklistId)
     {
-        $checklist = Checklist::find($checklistId);
+        $checklist = Checklist::findOrFail($checklistId);
         return view('checklist-show', ["checklist" => $checklist]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id)
     {
         //
-        $checklist = Checklist::find($id);
+        $checklist = Checklist::findOrFail($id);
+
+        if ($request->user()->cannot('update', $checklist)) {
+            abort(403);
+        }
+
         return view('checklist-edit', ["checklist" => $checklist]);
     }
 
@@ -94,7 +99,12 @@ class ChecklistController extends Controller
     public function update(Request $request, string $checklistId)
     {
         //
-        $checklist = Checklist::find($checklistId);
+        $checklist = Checklist::findOrFail($checklistId);
+
+        if ($request->user()->cannot('update', $checklist)) {
+            abort(403);
+        }
+
         $items = $checklist->items()->get();
 
         foreach ($items as $item) 
@@ -114,8 +124,13 @@ class ChecklistController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $checklistId)
+    public function destroy(Request $request, string $checklistId)
     {
+        $checklist = Checklist::findOrFail($checklistId);
+        if ($request->user()->cannot('delete', $checklist)) {
+            abort(403);
+        }
+
         Checklist::destroy($checklistId);
         return redirect()->route('home');
     }
