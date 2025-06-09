@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="flex flex-col gap-8 p-8 justify-around grow">
-    <h1 class="text-8xl text-center font-semibold">Choose a Template</h1>
+    <h1 class="text-8xl text-center font-semibold">Choose a Checklist</h1>
     <div class="flex flex-col grow justify-start">
         @foreach ($templates as $template)
         <form class="flex flex-row" method="post" action="/checklist">

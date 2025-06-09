@@ -7,7 +7,7 @@
     <div class="flex flex-col grow gap-8 justify-start">
         @foreach ($templates as $template)
         <div class="flex flex-row justify-around font-semibold">
-            <h1 class="text-5xl" ">{{$template->name}}</h1>
+            <h1 class="text-5xl">{{$template->name}}</h1>
             <div class="flex flex-row text-4xl gap-8 align-middle">
                 <a href="{{ route('templates.edit', $template->id) }}" class="bg-custom-blue p-4 rounded-3xl hover:cursor-pointer">Edit</a>
                 <form method="post" action="{{ route('templates.destroy', $template->id) }}">
