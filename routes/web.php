@@ -54,5 +54,5 @@ Route::middleware(['auth', UserIsAdmin::class])->group(function () {
 Route::get('/auth/redirect', [DiscordController::class, "redirect"]);
 Route::get('/auth/callback', [DiscordController::class, "callback"]);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/verificationt', [AuthController::class, 'verification'])->name('verification');
+Route::get('/verification', [AuthController::class, 'verification'])->name('verification');
 Route::get('/logout',  [AuthController::class, 'logout'])->name('logout');
