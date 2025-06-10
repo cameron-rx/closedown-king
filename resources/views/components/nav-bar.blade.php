@@ -2,7 +2,7 @@
 <div class="sticky top-0 z-10 h-40 bg-background w-full flex flex-row justify-between items-center">
     <!-- User info -->
      <a href="/" class="pl-4">
-        <img class="w-32 h-auto" src="{{ asset('images/closedown-king.png') }}" width="1024" height="1024"
+        <img class="w-32 h-auto" src="{{ asset('images/closedown-king.webp') }}" width="1024" height="1024"
         alt="Closedown King Logo">
      </a>
         
