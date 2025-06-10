@@ -25,7 +25,7 @@
                 <form class="flex flex-col grow justify-evenly gap-12" method="post"
                     action="{{ route('templates.section.store', $template->id )}}">
                     @csrf
-                    <input class="p-4 text-4xl" type="text" name="name" class="input" placeholder="Enter item name" />
+                    <input class="p-4 text-4xl" type="text" name="name" placeholder="Enter item name" />
                     <button
                         class="bg-custom-green text-white rounded-3xl font-semibold text-4xl pl-8 pr-8 pb-4 pt-4 w-72 self-center"
                         type="submit">Create</button>
