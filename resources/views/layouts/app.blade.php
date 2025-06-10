@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}" />
     <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
+    <link rel="preload" href="{{ asset('images/closedown-king.webp') }}" as="image">
 </head>
 
 <body class="bg-background min-h-dvh flex flex-col">
