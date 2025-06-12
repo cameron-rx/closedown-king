@@ -17,7 +17,12 @@
             @foreach ($checklists as $checklist)
             <tr>
                 <td>{{ $checklist->name }}</td>
-                <td>{{ $checklist->user->name }}</td>
+                <td>
+                    <div class="flex flex-row justify-evenly items-center flex-nowrap">
+                        <p>{{ $checklist->user->name }}</p> 
+                        <img class="rounded-full w-18 h-auto" src="{{ $checklist->user->avatar }}">
+                    </div>
+                </td>
                 <td>{{ $checklist->updated_at->diffForHumans() }}</td>
                 <td><a href="{{ route('checklists.show', $checklist->id) }}" class="bg-custom-blue rounded-3xl ">Show</a>
                 </td>
