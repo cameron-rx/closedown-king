@@ -23,18 +23,18 @@
                 </div>
                 @endforeach
 
-            <button
-                class="flex justify-center items-center pt-12 pb-12 ml-40 mr-40 text-center align-middle text-5xl font-semibold bg-custom-grey text-white rounded-3xl"
-                type="submit">Submit</button>
+            <x-menu-button class="bg-custom-green grow ml-auto mr-auto">
+                <button class="grow" type="submit">Submit</button>
+            </x-menu-button>
         </form>
 
 
         <form class="w-full flex flex-col justify-center items-center" method="post" action="{{ route('checklists.destroy', $checklist->id) }}">
             @csrf
             @method('DELETE')
-            <button
-                class="flex justify-center items-center h-[8svh] text-center align-middle w-2/3 m-[1svh] text-5xl font-semibold bg-custom-red text-white rounded-3xl"
-                type="submit">Cancel</button>
+            <x-menu-button class="bg-custom-red text-white">
+                <button class="grow" type="submit">Cancel</button>
+            </x-menu-button>
         </form>
 </div>
 
