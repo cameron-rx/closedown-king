@@ -3,24 +3,24 @@
 @section('content')
 <div class="flex flex-col justify-around items-center grow p-8">
     <div class="flex flex-col justify-start items-center gap-8 grow">
-    <h1 class="text-8xl font-semibold">Logs</h1>
+    <h1 class="text-8xl lg:text-5xl font-semibold">Logs</h1>
     
-    <table class="table-auto  border-separate border-spacing-x-8 border-spacing-y-16 ">
-        <thead class="text-4xl text-left">
+    <table class="table-auto text-4xl lg:text-2xl  border-separate border-spacing-x-8 border-spacing-y-16 ">
+        <thead class="text-left">
             <tr>
                 <th>Name</th>
                 <th>User</th>
                 <th>Time</th>
             </tr>
         </thead>
-        <tbody class="text-4xl">
+        <tbody class="">
             @foreach ($checklists as $checklist)
             <tr>
                 <td>{{ $checklist->name }}</td>
                 <td>
-                    <div class="flex flex-row justify-evenly items-center flex-nowrap">
+                    <div class="flex flex-row justify-evenly items-center gap-4 flex-nowrap">
                         <p>{{ $checklist->user->name }}</p> 
-                        <img class="rounded-full w-18 h-auto" src="{{ $checklist->user->avatar }}">
+                        <img class="rounded-full w-18 lg:w-8 h-auto" src="{{ $checklist->user->avatar }}">
                     </div>
                 </td>
                 <td>{{ $checklist->updated_at->diffForHumans() }}</td>
