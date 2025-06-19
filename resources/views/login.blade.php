@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<img class="max-w-full h-auto mt-[10svh]" src="{{ asset('images/closedown-king.webp') }}" width="1024" height="1024" alt="Closedown King Logo">
-<div class="flex flex-col m-20 justify-center items-center">
-    <a href='/auth/redirect' class="flex justify-center items-center h-[8svh] text-center align-middle w-2/3 m-[1.25svh] text-5xl font-semibold bg-custom-grey text-white rounded-3xl">Login</a>
+<div class="flex flex-col justify-evenly items-center gap-16">
+    <img class="max-w-9/10 lg:max-w-1/3 h-auto mt-[10svh]" src="{{ asset('images/closedown-king.webp') }}"
+        width="1024" height="1024" alt="Closedown King Logo">
+    <x-menu-button class="bg-custom-grey">
+        <a class="grow" href='/auth/redirect'>Login with Discord</a>
+    </x-menu-button>
+
 </div>
 @endsection

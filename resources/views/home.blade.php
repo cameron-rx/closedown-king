@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="flex flex-col grow justify-evenly items-center w-full h-full p-4">
-    <img class="max-w-full h-auto mt-14" src="{{ asset('images/closedown-king.webp') }}" width="1024" height="1024"
+    <img class="max-w-full lg:max-w-1/3 h-auto mt-14" src="{{ asset('images/closedown-king.webp') }}" width="1024" height="1024"
         alt="Closedown King Logo">
     <div class="flex flex-col justify-center items-center w-full">
 
