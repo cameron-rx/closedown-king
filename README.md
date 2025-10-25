@@ -9,6 +9,14 @@ can ensure they are doing their job properly and helps with new hires to know wh
 ## Demo
 ![Demo](closedown-king-demo.gif)
 
+## Features
+✅  Authentication through discord via socialite package to authorise access based on whether user is apart of our site discord server which is used for communications   
+✅  Role based access control so only managers/team leaders can edit the templates that all users use to generate checklists  
+✅  Time stamped log of checklists completed with user to create accountability  
+✅  Mobile first user interface for easy access on mobile devices  
+⏳  Collaborative checklists so multiple users can work on same one   
+⏳  Push notifications to discord server when checlist is completed  
+
 ## Technologies Used
 - PHP
 - Laravel
@@ -20,11 +28,4 @@ PHP and Laravel as I was interested in learning it and new the MVC model was gre
 exactly what I needed for easy discord OAuth integration. I choose to develop with a mobile first approach as all users would be accessing this application from their mobile phones on
 the bar so tailwind allowed for easy and rapid development with this in mind.
 
-## Features
-✅  Authentication through discord via socialite package to authorise access based on whether user is apart of our site discord server which is used for communications   
-✅  Role based access control so only managers/team leaders can edit the templates that all users use to generate checklists  
-✅  Time stamped log of checklists completed with user to create accountability  
-✅  Mobile first user interface for easy access on mobile devices  
-⏳  Collaborative checklists so multiple users can work on same one   
-⏳  Push notifications to discord server when checlist is completed  
 
