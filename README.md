@@ -1,4 +1,4 @@
-# Closedown King 🧹👑
+# 👑 Closedown King 
 ## Description
 This application was created with the intent to improve the end of night close downs at my job in a cocktail bar. 
 Checklists are an excellent way of improving outcomes as it creates a source of truth for what needs to be done and requires people to rely on their memory less
